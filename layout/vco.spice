@@ -1,0 +1,55 @@
+* SPICE3 file created from vco.ext - technology: sky130A
+
+.subckt pmos_main a_n80_500# a_0_460# w_n120_440# a_260_500# VSUBS
+X0 a_260_500# a_0_460# a_n80_500# w_n120_440# sky130_fd_pr__pfet_01v8 ad=1.6e+12p pd=8.8e+06u as=1.6e+12p ps=8.8e+06u w=4e+06u l=1.3e+06u
+.ends
+
+.subckt pmos_aux a_100_0# a_0_n30# w_n120_n40# a_n80_0# VSUBS
+X0 a_100_0# a_0_n30# a_n80_0# w_n120_n40# sky130_fd_pr__pfet_01v8 ad=4e+11p pd=2.8e+06u as=4e+11p ps=2.8e+06u w=1e+06u l=500000u
+.ends
+
+.subckt nmos_main a_0_n40# a_260_0# a_n80_0# VSUBS
+X0 a_260_0# a_0_n40# a_n80_0# VSUBS sky130_fd_pr__nfet_01v8 ad=8e+11p pd=4.8e+06u as=8e+11p ps=4.8e+06u w=2e+06u l=1.3e+06u
+.ends
+
+.subckt nmos_aux a_0_n40# a_100_0# a_n80_0# VSUBS
+X0 a_100_0# a_0_n40# a_n80_0# VSUBS sky130_fd_pr__nfet_01v8 ad=2e+11p pd=1.8e+06u as=2e+11p ps=1.8e+06u w=500000u l=500000u
+.ends
+
+.subckt cc_inverter inp inn outp outn VDD_A V_CTRL pmos_aux_1/VSUBS
+Xpmos_main_1 outn inn VDD_A VDD_A pmos_aux_1/VSUBS pmos_main
+Xpmos_main_0 VDD_A inp VDD_A outp pmos_aux_1/VSUBS pmos_main
+Xpmos_aux_0 VDD_A outp VDD_A outn pmos_aux_1/VSUBS pmos_aux
+Xpmos_aux_1 outp outn VDD_A VDD_A pmos_aux_1/VSUBS pmos_aux
+Xnmos_main_0 inp outp V_CTRL pmos_aux_1/VSUBS nmos_main
+Xnmos_main_1 inn V_CTRL outn pmos_aux_1/VSUBS nmos_main
+Xnmos_aux_0 outp V_CTRL outn pmos_aux_1/VSUBS nmos_aux
+Xnmos_aux_1 outn outp V_CTRL pmos_aux_1/VSUBS nmos_aux
+C0 outn pmos_aux_1/VSUBS 2.02fF
+C1 V_CTRL pmos_aux_1/VSUBS 2.72fF
+C2 VDD_A pmos_aux_1/VSUBS 5.06fF
+.ends
+
+
+* Top level circuit vco
+
+Xcc_inverter_0 cc_inverter_0/inp cc_inverter_0/inn cc_inverter_1/inp cc_inverter_1/inn
++ cc_inverter_2/VDD_A cc_inverter_4/V_CTRL VSUBS cc_inverter
+Xcc_inverter_1 cc_inverter_1/inp cc_inverter_1/inn cc_inverter_2/inp cc_inverter_2/inn
++ cc_inverter_2/VDD_A cc_inverter_4/V_CTRL VSUBS cc_inverter
+Xcc_inverter_2 cc_inverter_2/inp cc_inverter_2/inn cc_inverter_3/inp cc_inverter_3/inn
++ cc_inverter_2/VDD_A cc_inverter_4/V_CTRL VSUBS cc_inverter
+Xcc_inverter_3 cc_inverter_3/inp cc_inverter_3/inn cc_inverter_4/inp cc_inverter_4/inn
++ cc_inverter_4/VDD_A cc_inverter_4/V_CTRL VSUBS cc_inverter
+Xcc_inverter_4 cc_inverter_4/inp cc_inverter_4/inn cc_inverter_0/inp cc_inverter_0/inn
++ cc_inverter_4/VDD_A cc_inverter_4/V_CTRL VSUBS cc_inverter
+C0 cc_inverter_0/inn VSUBS 4.38fF
+C1 cc_inverter_4/V_CTRL VSUBS 13.72fF
+C2 cc_inverter_4/inn VSUBS 3.42fF
+C3 cc_inverter_4/VDD_A VSUBS 10.66fF
+C4 cc_inverter_3/inn VSUBS 4.60fF
+C5 cc_inverter_2/VDD_A VSUBS 15.11fF
+C6 cc_inverter_2/inn VSUBS 3.30fF
+C7 cc_inverter_1/inn VSUBS 3.30fF
+.end
+

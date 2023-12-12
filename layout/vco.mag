@@ -1,0 +1,53 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1702037508
+<< locali >>
+rect 540 -100 600 130
+rect 2190 -100 2250 130
+rect 3840 -100 3900 130
+rect 0 -200 4950 -100
+rect 1640 -430 1700 -200
+rect 3290 -430 3350 -200
+<< metal1 >>
+rect -370 1310 0 1350
+rect 4950 1310 5330 1350
+rect -370 -1610 -330 1310
+rect -290 510 0 550
+rect 4940 510 5250 550
+rect -290 -810 -250 510
+rect -200 0 0 100
+rect 4950 0 5160 100
+rect -200 -300 -100 0
+rect 5040 -300 5160 0
+rect -200 -400 590 -300
+rect 3890 -400 5160 -300
+rect 5210 -810 5250 510
+rect -290 -850 590 -810
+rect 3890 -850 5250 -810
+rect 5290 -1609 5330 1310
+rect 3899 -1610 5330 -1609
+rect -370 -1650 590 -1610
+rect 3890 -1650 5330 -1610
+rect 3899 -1651 5330 -1650
+use cc_inverter  cc_inverter_0
+timestamp 1701684648
+transform 1 0 0 0 1 830
+box 0 -830 1650 1100
+use cc_inverter  cc_inverter_1
+timestamp 1701684648
+transform 1 0 1650 0 1 830
+box 0 -830 1650 1100
+use cc_inverter  cc_inverter_2
+timestamp 1701684648
+transform 1 0 3300 0 1 830
+box 0 -830 1650 1100
+use cc_inverter  cc_inverter_3
+timestamp 1701684648
+transform -1 0 3890 0 -1 -1130
+box 0 -830 1650 1100
+use cc_inverter  cc_inverter_4
+timestamp 1701684648
+transform -1 0 2240 0 -1 -1130
+box 0 -830 1650 1100
+<< end >>

@@ -1,0 +1,106 @@
+timestamp 1701836035
+version 8.3
+tech sky130A
+style ngspice()
+scale 1000 1 500000
+resistclasses 4400000 2200000 1700000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12200 125 125 47 47 29 5
+use cc_inverter cc_inverter_4 -1 0 2240 0 -1 -1130
+use cc_inverter cc_inverter_3 -1 0 3890 0 -1 -1130
+use cc_inverter cc_inverter_2 1 0 3300 0 1 830
+use cc_inverter cc_inverter_1 1 0 1650 0 1 830
+use cc_inverter cc_inverter_0 1 0 0 0 1 830
+node "m1_3890_n400#" 2 882.2 3890 -400 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 184000 3720 0 0 0 0 0 0 0 0 0 0
+node "m1_n200_n400#" 2 653.75 -200 -400 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 129000 2780 0 0 0 0 0 0 0 0 0 0
+node "m1_3890_n850#" 9 1320.04 3890 -850 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 119600 6060 0 0 0 0 0 0 0 0 0 0
+node "m1_n290_n850#" 8 1102.04 -290 -850 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 99600 5060 0 0 0 0 0 0 0 0 0 0
+node "m1_3890_n1650#" 15 2085.28 3890 -1650 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 192422 9562 0 0 0 0 0 0 0 0 0 0
+node "m1_n370_n1650#" 13 1869.4 -370 -1650 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 170000 8580 0 0 0 0 0 0 0 0 0 0
+node "li_0_n200#" 807 3063.7 0 -200 li 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 564000 12400 0 0 0 0 0 0 0 0 0 0 0 0
+substrate "VSUBS" 0 0 -1073741817 -1073741817 space 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "m1_3890_n1650#" "m1_3890_n400#" 173.077
+cap "m1_n290_n850#" "m1_n200_n400#" 450
+cap "m1_n370_n1650#" "m1_n290_n850#" 1575
+cap "m1_n370_n1650#" "m1_n200_n400#" 173.077
+cap "m1_3890_n850#" "m1_3890_n400#" 450
+cap "m1_3890_n850#" "m1_3890_n1650#" 1575
+cap "cc_inverter_4/inp" "cc_inverter_3/pmos_main_1/a_0_460#" 69.44
+cap "cc_inverter_4/VDD_A" "cc_inverter_4/inn" -3.55271e-15
+cap "cc_inverter_3/pmos_main_1/a_0_460#" "cc_inverter_4/inn" -14.1
+cap "cc_inverter_4/nmos_main_0/a_n80_0#" "cc_inverter_3/nmos_main_1/a_260_0#" 44
+cap "cc_inverter_3/nmos_main_1/a_260_0#" "cc_inverter_4/inn" -16.4
+cap "cc_inverter_4/w_0_n710#" "cc_inverter_4/inn" 1.13687e-13
+cap "cc_inverter_3/inn" "cc_inverter_4/pmos_main_0/a_0_460#" 16.5968
+cap "cc_inverter_3/inn" "cc_inverter_4/inp" -49.585
+cap "cc_inverter_4/inp" "cc_inverter_4/VDD_A" -43.255
+cap "cc_inverter_4/inn" "cc_inverter_3/inn" -49.585
+cap "cc_inverter_3/inp" "cc_inverter_4/inp" 0.115681
+cap "cc_inverter_4/inn" "cc_inverter_3/w_0_n710#" -86.51
+cap "cc_inverter_3/pmos_main_0/a_260_500#" "cc_inverter_3/inp" 0.115681
+cap "cc_inverter_4/outn" "cc_inverter_0/w_0_n710#" 4.71429
+cap "cc_inverter_0/w_0_n710#" "cc_inverter_0/nmos_main_0/a_260_0#" 7.54286
+cap "cc_inverter_4/V_CTRL" "cc_inverter_4/outn" 48.1034
+cap "cc_inverter_4/V_CTRL" "m1_n370_n1650#" 37.7027
+cap "cc_inverter_4/V_CTRL" "cc_inverter_0/w_0_n710#" 102.586
+cap "cc_inverter_4/pmos_main_1/a_n80_500#" "cc_inverter_4/w_0_n710#" 2.82857
+cap "cc_inverter_4/pmos_main_0/a_260_500#" "cc_inverter_4/w_0_n710#" 7.54286
+cap "cc_inverter_4/V_CTRL" "cc_inverter_1/V_CTRL" 210
+cap "cc_inverter_1/inn" "cc_inverter_4/w_0_n710#" 7.54286
+cap "cc_inverter_4/pmos_main_0/a_0_460#" "cc_inverter_3/pmos_main_1/a_0_460#" 3.68
+cap "cc_inverter_4/w_0_n710#" "cc_inverter_4/V_CTRL" 102.586
+cap "cc_inverter_1/nmos_main_0/a_260_0#" "cc_inverter_4/w_0_n710#" 7.54286
+cap "cc_inverter_1/nmos_main_0/a_0_n40#" "cc_inverter_0/nmos_main_1/a_0_n40#" 3.68
+cap "cc_inverter_1/inn" "cc_inverter_1/V_CTRL" -5.68434e-14
+cap "cc_inverter_4/w_0_n710#" "cc_inverter_1/V_CTRL" 102.586
+cap "cc_inverter_3/pmos_main_0/a_260_500#" "cc_inverter_4/w_0_n710#" 7.54286
+cap "cc_inverter_4/inn" "cc_inverter_4/w_0_n710#" -78.9671
+cap "cc_inverter_2/nmos_main_0/a_260_0#" "cc_inverter_4/w_0_n710#" 7.54286
+cap "cc_inverter_4/inn" "cc_inverter_3/inn" -49.585
+cap "cc_inverter_1/nmos_main_1/a_0_n40#" "cc_inverter_2/nmos_main_0/a_0_n40#" 3.68
+cap "cc_inverter_4/w_0_n710#" "cc_inverter_2/inn" 7.54286
+cap "cc_inverter_4/w_0_n710#" "cc_inverter_2/V_CTRL" 15.0857
+cap "cc_inverter_4/pmos_main_0/a_0_460#" "cc_inverter_3/inn" 1.48387
+cap "cc_inverter_4/V_CTRL" "cc_inverter_4/w_0_n710#" 93.1571
+cap "cc_inverter_4/V_CTRL" "cc_inverter_2/V_CTRL" 210
+cap "m1_3890_n1650#" "cc_inverter_3/V_CTRL" 17.8846
+cap "cc_inverter_2/w_0_n710#" "cc_inverter_3/V_CTRL" 96.9286
+cap "cc_inverter_3/inn" "cc_inverter_3/V_CTRL" 45
+cap "cc_inverter_2/w_0_n710#" "cc_inverter_3/inn" 7.54286
+cap "m1_3890_n1650#" "cc_inverter_2/V_CTRL" 17.8846
+cap "cc_inverter_2/outn" "cc_inverter_2/V_CTRL" 21.1364
+cap "cc_inverter_1/nmos_main_0/a_n80_0#" "cc_inverter_0/nmos_main_1/a_260_0#" 29.3333
+cap "cc_inverter_1/inp" "cc_inverter_1/VDD_A" 2.27374e-13
+cap "cc_inverter_1/inn" "cc_inverter_0/w_0_n710#" 1.42109e-14
+cap "cc_inverter_1/inp" "cc_inverter_0/nmos_main_1/a_0_n40#" 69.44
+cap "cc_inverter_1/nmos_main_1/a_260_0#" "cc_inverter_2/nmos_main_0/a_n80_0#" 29.3333
+cap "cc_inverter_2/inp" "cc_inverter_2/VDD_A" 1.13687e-13
+cap "cc_inverter_2/inp" "cc_inverter_2/inn" 5.68434e-14
+cap "cc_inverter_2/inp" "cc_inverter_1/nmos_main_1/a_0_n40#" 69.44
+merge "cc_inverter_2/outp" "cc_inverter_3/inp" -400.916 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 58760 -2142 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_3/inp" "m1_3890_n1650#"
+merge "cc_inverter_2/w_0_n710#" "cc_inverter_1/w_0_n710#" -75.975 77900 -2940 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 76000 -600 0 0 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_1/w_0_n710#" "cc_inverter_0/w_0_n710#"
+merge "cc_inverter_0/w_0_n710#" "cc_inverter_3/w_0_n710#"
+merge "cc_inverter_3/w_0_n710#" "cc_inverter_4/w_0_n710#"
+merge "cc_inverter_4/w_0_n710#" "li_0_n200#"
+merge "li_0_n200#" "VSUBS"
+merge "cc_inverter_0/inn" "cc_inverter_4/outn" -32.8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -160 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_4/outn" "m1_n290_n850#"
+merge "cc_inverter_0/inp" "cc_inverter_4/outp" -643.2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -56000 -2960 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_4/outp" "m1_n370_n1650#"
+merge "cc_inverter_3/V_CTRL" "cc_inverter_2/V_CTRL" -395.05 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 53000 -1400 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_2/V_CTRL" "m1_3890_n400#"
+merge "m1_3890_n400#" "cc_inverter_1/V_CTRL"
+merge "cc_inverter_1/V_CTRL" "cc_inverter_0/V_CTRL"
+merge "cc_inverter_0/V_CTRL" "cc_inverter_4/V_CTRL"
+merge "cc_inverter_4/V_CTRL" "m1_n200_n400#"
+merge "cc_inverter_2/outn" "cc_inverter_3/inn" -31.83 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7800 -180 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_3/inn" "m1_3890_n850#"
+merge "cc_inverter_1/outn" "cc_inverter_2/inn" -16.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -80 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_1/outp" "cc_inverter_2/inp" -16.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -80 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_3/VDD_A" "cc_inverter_4/VDD_A" 529.95 0 0 0 0 186200 -1960 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 19000 -200 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_0/VDD_A" "cc_inverter_2/VDD_A" -82 0 0 0 0 0 -3920 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -400 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_2/VDD_A" "cc_inverter_1/VDD_A"
+merge "cc_inverter_0/outn" "cc_inverter_1/inn" -16.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -80 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_0/outp" "cc_inverter_1/inp" -16.4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -80 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_3/outn" "cc_inverter_4/inn" 276.77 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7600 -80 0 0 0 0 0 0 0 0 0 0
+merge "cc_inverter_3/outp" "cc_inverter_4/inp" 75.05 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7600 -80 0 0 0 0 0 0 0 0 0 0

@@ -1,0 +1,61 @@
+**.subckt ring_osc VPWR VGND pn[0] p[0] pn[1] p[1] p[2] p[3] p[4] pn[2] pn[3] pn[4]
+*.iopin VPWR
+*.iopin VGND
+*.opin pn[0]
+*.iopin p[0]
+*.opin pn[1]
+*.opin p[1]
+*.opin p[2]
+*.opin p[3]
+*.opin p[4]
+*.opin pn[2]
+*.opin pn[3]
+*.opin pn[4]
+Xi_1 p[4] pn[4] VPWR VGND pn[0] p[0] cc_inv L12="L12" Wp12="Wp12" Wn12="Wn12" L34="L34" Wp34="Wp34"
++ Wn34="Wn34"
+Xi_2 p[0] pn[0] VPWR VGND pn[1] p[1] cc_inv L12="L12" Wp12="Wp12" Wn12="Wn12" L34="L34" Wp34="Wp34"
++ Wn34="Wn34"
+Xi_3 p[1] pn[1] VPWR VGND pn[2] p[2] cc_inv L12="L12" Wp12="Wp12" Wn12="Wn12" L34="L34" Wp34="Wp34"
++ Wn34="Wn34"
+Xi_4 p[2] pn[2] VPWR VGND pn[3] p[3] cc_inv L12="L12" Wp12="Wp12" Wn12="Wn12" L34="L34" Wp34="Wp34"
++ Wn34="Wn34"
+Xi_5 p[3] pn[3] VPWR VGND pn[4] p[4] cc_inv L12="L12" Wp12="Wp12" Wn12="Wn12" L34="L34" Wp34="Wp34"
++ Wn34="Wn34"
+**.ends
+
+* expanding   symbol:  cc_inv.sym # of pins=6
+* sym_path: /home/userdata/k63D/toind_63d/Desktop/project/circuit_model/lib/cc_inv.sym
+* sch_path: /home/userdata/k63D/toind_63d/Desktop/project/circuit_model/lib/cc_inv.sch
+.subckt cc_inv  inp inn VPWR VGND outn outp   L12=0.15 Wp12=1.2 Wn12=0.65 L34=0.15 Wp34=1.2
++ Wn34=0.65
+*.iopin VGND
+*.iopin VPWR
+*.iopin outp
+*.iopin outn
+*.iopin inp
+*.iopin inn
+Xi_1 inp VPWR VGND outp inverter L="L12" Wp="Wp12" Np=1 Wn="Wn12" Nn=1
+Xi_3 outp VPWR VGND outn inverter L="L34" Wp="Wp34" Np=1 Wn="Wn34" Nn=1
+Xi_2 inn VPWR VGND outn inverter L="L12" Wp="Wp12" Np=1 Wn="Wn12" Nn=1
+Xi_4 outn VPWR VGND outp inverter L="L34" Wp="Wp34" Np=1 Wn="Wn34" Nn=1
+.ends
+
+
+* expanding   symbol:  inverter.sym # of pins=4
+* sym_path: /home/userdata/k63D/toind_63d/Desktop/project/circuit_model/lib/inverter.sym
+* sch_path: /home/userdata/k63D/toind_63d/Desktop/project/circuit_model/lib/inverter.sch
+.subckt inverter  A VPWR VGND Y   L=0.15 Wp=1.2 Np=1 Wn=0.65 Nn=1
+*.iopin VPWR
+*.iopin VGND
+*.ipin A
+*.opin Y
+XM1 Y A VPWR VDD sky130_fd_pr__pfet_01v8 L="L" W="Wp" nf="Np" ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1 
+XM2 Y A VGND GND sky130_fd_pr__nfet_01v8 L="L" W="Wn" nf="Nn" ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1 
+.ends
+
+** flattened .save nodes
+.end
